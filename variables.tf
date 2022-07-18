@@ -217,3 +217,10 @@ variable "instance_profile" {
   description = "A pre-defined profile to attach to the instance (default is to build our own)"
   default     = ""
 }
+
+variable "source_dest_check" {
+  type        = bool
+  default     = true
+  description = "Whether to perform the source & destination checks (must be disabled for NAT)"
+}
+

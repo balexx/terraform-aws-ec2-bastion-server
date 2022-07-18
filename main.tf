@@ -66,6 +66,11 @@ resource "aws_instance" "default" {
   monitoring                  = var.monitoring
   disable_api_termination     = var.disable_api_termination
 
+  # Required by NAT
+  # https://docs.aws.amazon.com/vpc/latest/userguide/VPC_NAT_Instance.html#EIP_Disable_SrcDestCheck
+  source_dest_check           = var.source_dest_check
+
+
   metadata_options {
     http_endpoint               = (var.metadata_http_endpoint_enabled) ? "enabled" : "disabled"
     http_put_response_hop_limit = var.metadata_http_put_response_hop_limit
